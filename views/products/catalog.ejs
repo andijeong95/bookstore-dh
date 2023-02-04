@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Include Head con CSS -->
+    <%- include("../partials/head") %>
+
+    <title>Catalog</title>
+  </head>
+  <body>
+    <!-- HEADER -->
+
+    <%- include("../partials/header") %>
+
+<!--Barra de navegacion celular-->
+<%-  include("../partials/bottomNav") %> 
+
+    <!--CATALOGO DE PRODUCTOS-->
+    <main>
+      <section>    
+  <% if (locals.isLogged &&locals.userLogged.rol) { %>
+    <a href="./create"><button class="button">Agregar producto</button></a>
+  <% } %>
+<div class="first-article">
+            <% for(let index=0; index < books.length; index++) { %>
+              <article class="article">
+            <a href ="./detalle-producto/<%= books[index].id %>">
+            <h2 class="title"><%= books[index].title %></h2>
+          <div class="image">  
+            <% if (books[index].image== null ||books[index].image== undefined) { %>
+              <img
+              src="/img/tapalibro.jpg"
+              alt=""
+              class="barra"
+            />
+            <% } else{ %>
+              <img
+              id="imgBook"
+                src="/img/uploads/<%=books[index].image %>"
+                alt=""
+                class="barra"
+              />
+              
+              <% } %>
+            </a>
+</div>
+            <!-- Logo de like (corazon) -->
+            <% if (locals.isLogged) { %>
+            <div class="logo-like barra">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <% } %>
+            <!--Autor, categoria, descripcion y precio-->
+            
+            <div class="contenido-libro">
+              <p class="autor"> <b>Autor:</b> <%= books[index].author%> </p>
+              <p class="categoria"><b>Genero: </b> <%= books[index].categories.name %> </p>
+              <p class="descripcion"><b>Descripcion:</b> <%= books[index].description %> </p>
+              <p class="precio"><b>Precio:</b> <%= books[index].currency %> <span id="bookPrice">  <%= books[index].price %> </span></p>
+
+            </div>
+              <div>
+                <a href ="./detalle-producto/<%= books[index].id %>"><button id="addToCart" class="button" data-id="<%= books[index].id%>">Detalle del producto</button> </a> 
+              </div>
+<div class="admin">
+          <!-- eliminar producto -->
+              
+              <% if (locals.isLogged &&locals.userLogged.rol) { %>
+               
+              <form
+                action="/products/<%= books[index].id %>?_method=DELETE" 
+                method="post"
+                >
+                <button type="submit" 
+                class="button"
+                >Eliminar</button>
+              </form>
+              <a href="./edit/<%= books[index].id  %> "><button type="submit" 
+              class="button"
+              >Editar</button></a>
+              <% } %>
+</div>
+        </article>
+        <% } %>        
+</section>
+    </main>
+    <!-- Footer -->
+    <%- include("../partials/footer") %>
+    <script src="/JS/cartAmount.js"></script>
+  </body>
+</html>

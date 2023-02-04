@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Include Head con CSS -->
+    <%- include("../partials/head.ejs") %>
+
+    <title>Catalog</title>
+  </head>
+  <body>
+    <!-- HEADER -->
+
+    <%- include("../partials/header") %>
+
+  <!--Barra de navegacion celular-->
+  <%-  include("../partials/bottomNav") %> 
+
+    <!--CATALOGO DE PRODUCTOS-->
+    <main>
+      <section>
+        <div class="first-article">
+          <article>
+            <h2 class="descripcion">Señor de los anillos<br>La Comunidad del Anillo</h2>
+            <img
+              src="/img/products/lordOfTheRings1.jpg"
+              alt="lordOfTheRings"
+              class="barra"
+              href="./detalle-producto.ejs"
+            />
+            <!-- Logo de envio (camion) -->
+            <div class="logo-like barra">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <div class="precio-libro">
+              <p class="precio">$2.000</p>
+              <div class="button">
+                <a href="/products/cart">Agregar al Carrito</a>
+              </div>
+            </div>
+          </article>
+          <article>
+            <h2 class="descripcion">Señor de los anillos</h2>
+              <h3>Las Dos Torres</h3>
+            <img
+              src="/img/products/lordOfTheRings2.jpg"
+              alt="lordOfTheRings"
+              class="barra"
+            />
+            <!-- Logo de envio (camion) -->
+            <div class="logo-like barra">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <div class="precio-libro">
+              <p class="precio">$2.500</p>
+              <div class="button">
+                <a href="/products/cart">Agregar al Carrito</a>
+              </div>
+            </div>
+          </article>
+          <article>
+            <h2 class="descripcion">Señor de los anillos<br>El Retorno del Rey</h2>
+            <img
+              src="/img/products/lordOfTheRings3.jpg"
+              alt="lordOfTheRings"
+              class="barra"
+            />
+            <!-- Logo de envio (camion) -->
+            <div class="logo-like barra">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <div class="precio-libro">
+              <p class="precio">$2.000</p>
+              <div class="button">
+                <a href="/products/cart">Agregar al Carrito</a>
+              </div>
+            </div>
+          </article>
+    
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+
+    <%- include("../partials/footer") %>
+    
+    <script src="/JS/cartAmount.js"></script>
+
+  </body>
+</html>

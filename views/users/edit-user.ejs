@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Include Head con CSS -->
+    <%- include("../partials/head") %>
+
+    <title>Editar Datos</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">
+        Editar Datos del usuario: <%= locals.oldData ? oldData.fullName :users.userName %>
+        <a href="/"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+      </div>
+
+      <!-- FORMULARIO DE REGIRSTRO -->
+
+      <form
+        action="/users/edit?_method=PUT"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+            <!--  Lista donde se almacenan los errores de validaciones Front -->
+            <div class="errores">
+              <ul></ul>
+            </div>
+            <!--  -->
+
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Nombre Completo</span>
+            <input
+              type="text"
+              value="<%= locals.oldData ? oldData.fullName : users.fullName%>"
+              name="fullName"
+              class="fullName"
+              placeholder="Nombre"
+            />
+            <% if (locals.errors && errors.fullName) { %>
+              <div class="text-danger">
+                <%= errors.fullName.msg %> 
+              </div>
+            <% } %>
+          </div>
+          <div class="input-box">
+            <span class="details">Usuario</span>
+            <input
+              type="text"
+              value="<%= locals.oldData ? oldData.userName : users.userName%>"
+              name="userName"
+              class="userName"
+              placeholder="Usuario"
+            />
+            <% if (locals.errors && errors.userName) { %>
+              <div class="text-danger">
+                <%= errors.userName.msg %> 
+              </div>
+            <% } %>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input
+              type="text"
+              value="<%= locals.oldData ? oldData.userEmail :users.userEmail%>"
+              name="userEmail"
+              class="userEmail"
+              placeholder="Email"
+            />
+            <% if (locals.errors && errors.userEmail) { %>
+              <div class="text-danger">
+                <%= errors.userEmail.msg %> 
+              </div>
+            <% } %>
+          </div>
+          <div class="input-box">
+            <span class="details">Numero de Telefono</span>
+            <input
+              type="text"
+              value="<%= locals.oldData ? oldData.phoneNumber : users.phoneNumber%>"
+              name="phoneNumber"
+              class="phoneNumber"
+              placeholder="Numero de Tel"
+            />
+            <% if (locals.errors && errors.phoneNumber) { %>
+              <div class="text-danger">
+                <%= errors.phoneNumber.msg %> 
+              </div>
+            <% } %>
+          </div>
+          <div class="input-box">
+            <span class="details">Contraseña</span>
+            <input
+              type="password"
+              name="password"
+              class="password"
+              placeholder="Contraseña"
+            />
+            <% if (locals.errors && errors.password) { %>
+              <div class="text-danger">
+                <%= errors.password.msg %> 
+              </div>
+            <% } %>
+          </div>
+          <div class="input-box">
+            <span class="details">Ciudad</span>
+            <input
+              type="text"
+              value="<%= locals.oldData ? oldData.city : users.city%>"
+              name="city"
+              class="city"
+              placeholder="Ciudad"
+            />
+            <% if (locals.errors && errors.city) { %>
+              <div class="text-danger">
+                <%= errors.city.msg %> 
+              </div>
+            <% } %>
+          </div>
+          <div class="foto-producto">
+            <input type="file" name="avatar" accept=".jpg, .jpeg, .png"  id="foto-producto" class="avatar"
+            value=""/>
+            
+            <label for="foto-producto">
+              <i class="fa-solid fa-image"></i>Foto de perfil</label>
+            <% if (locals.errors && errors.avatar) { %>
+              <div class="text-danger">
+                <%= errors.avatar.msg %> 
+              </div>
+            <% } %>
+          </div>
+        </div>
+          <div class="button">
+            <input type="submit" value="Editar" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+  <!-- CUSTOM JS -->
+  <script src="/JS/validationsFrontRegister-Edit.js"></script>
+</html>
+
+

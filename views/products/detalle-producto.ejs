@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Include Head con CSS -->
+    <%- include("../partials/head") %>
+
+    <!-- Titulo -->
+    <title>Product Details</title>
+  </head>
+  <body>
+    <%- include("../partials/header") %>
+
+    <!--Barra de navegacion celular-->
+    <%- include("../partials/bottomNav") %>
+<main>
+    <div class="contenedor-total">
+      <div class="card">
+        
+        <div class="imgBox">
+          <img id="imgBook" src="/img/uploads/<%=books.image %>" />
+        </div>
+        
+        <div class="details">
+          <div class="title">
+            <h3>
+              <%= books.title ?? " " %> <br />
+            </h3>
+
+            <div class="detalle-contenido">
+
+              <div class="genero"><b>Genero:</b> <%= books.categories.name %> </small>
+            
+          </div>
+          <div class="autor">
+            <b>Autor:</b> <%= books.author %> </span>
+          </div>
+          <div class="description">
+            <b>Descripcion:</b>
+            <br />
+            <p><%= books.description %></p>
+          </div>
+          <div class="buy">
+            <div class="price">
+               <%= books.currency %> <span id="bookPrice"><%= books.price %> </span>
+            </div>
+
+          </div>
+          <% if (locals.isLogged) { %>
+          <div>
+            <a href="/products/cart"><button id="btn-buy" class="button">Agregar al Carrito</button></a>
+            </div>
+            <% } %>
+            <div class="admin">
+
+            
+            <form
+              action="/products/<%= books.id %>?_method=DELETE"
+              method="post"
+            >
+            <button type="submit" class="button">Eliminar</button>
+            </form>
+            <a href="/edit/<%= books.id  %> "
+              ><button type="submit" class="button">Editar</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </main>
+    <!-- FOOTER -->
+    
+    <%- include("../partials/footer") %>
+    <script src="/JS/addProductToCart.js"></script>
+    <script src="/JS/cartAmount.js"></script>
+
+  </body>
+</html>

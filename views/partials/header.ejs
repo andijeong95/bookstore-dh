@@ -1,0 +1,43 @@
+<header class="header">
+    <div class="header-container">
+        <!-- LOGO -->
+        <div class="logo-bookstore">
+        <a href="/"><img src="/img/logo.jpg" alt="Logo Book Store" /></a>
+        </div>
+        <!-- BARRA DE BUSQUEDA -->
+        <form action="/search" method="GET" class="search-form" >
+          <input type="search" name="search" placeholder="Busque aqui..." id="search-box">
+          <!-- <label for="search-box"> <a href="/search" class="fas fa-search"></a></label> -->
+        </form>
+        <!-- ICONOS -->
+
+          <% if (locals.isLogged) { %>
+              <div class="icons">
+                  <div class="cartIcon">
+                    <a href="/products/cart" class="fas fa-shopping-cart">
+                      <div class="cartAmount"id="cartAmount">0</div>
+                    </a>
+                  </div>
+                  <div class="userIcon">
+                    <a href="/users/profile">
+                      <img src="/img/users/<%= locals.userLogged.avatar%>" width="40" style="border-radius:100%;"/>          
+                      <p> Hi <%= locals.userLogged.fullName %>!</p>
+                    </a>
+                  
+          <% } else { %> 
+                    
+                    <a href="/users/login"id="login-btn" class="fas fa-user"></a>
+          <% } %>
+                </div>
+          
+              </div>
+    </div>
+      <!-- NAVEGACION -->
+    <div class="header-container-2">
+      <nav class="navbar">
+        <a href="/">Home</a>
+        <a href="/products/catalog">Catalogo</a>
+        <a href="/contact">Contacto</a>
+      </nav>
+    </div>
+  </header>

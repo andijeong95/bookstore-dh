@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Include Head con CSS -->
+    <%- include("./partials/head") %>
+
+    <title>Book Store</title>
+  </head>
+  <body>
+    <!-- HEADER -->
+
+    <%- include("./partials/header") %>
+
+    <!--Barra de navegacion celular-->
+    <%- include("./partials/bottomNav.ejs") %>
+
+    <!-- Centro del body -->
+    <main>
+      <div class="main-container">
+        <a href="/products/catalog">
+          <div class="card card-ebooks">
+            <h2>E-books</h2>
+          </div>
+        </a>
+        <a href="/products/catalog">
+          <div class="card card-Impresos">
+            <h2>Fisicos</h2>
+          </div>
+        </a>
+      </div>
+    </main>
+    <!-- Footer -->
+
+    <%- include("./partials/footer") %>
+
+    <!-- SCROLL REVEAL -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- CUSTOM JS -->
+    <script src="/JS/archivo.js"></script>
+    <script src="/JS/cartAmount.js"></script>
+
+  </body>
+</html>

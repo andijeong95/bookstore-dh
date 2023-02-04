@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Include Head con CSS -->
+    <%- include("../partials/head") %>
+    <title>Carrito</title>
+</head>
+<body>
+    <!-- HEADER -->
+
+    <%- include("../partials/header") %>
+
+    <!--Barra de navegacion celular-->
+    <%- include("../partials/bottomNav.ejs") %>
+<main>
+    <!-- CARRITO DE COMPRAS -->
+    <div class="container">
+        <h1>Shopping Cart</h1>
+         <div class="cart">
+            <div class="products"> 
+            </div>
+            
+            <div class="cart-total">
+                
+                
+            </div>
+        </div>
+    </div>
+</main> 
+
+<%- include("../partials/footer") %>
+
+</body>
+<script src="/JS/cartList.js"></script>
+<script src="/JS/cartAmount.js"></script>
+</html>

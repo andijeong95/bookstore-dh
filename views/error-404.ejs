@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Include Head con CSS -->
+    <%- include("./partials/head") %>
+
+    <title>Book Store</title>
+  </head>
+  <body>
+    <!-- HEADER -->
+
+    <%- include("./partials/header") %>
+
+    <!--Barra de navegacion celular-->
+    <%- include("./partials/bottomNav.ejs") %>
+
+    <!-- Centro del body -->
+    <main>
+      <div class="error-container">
+        <img src="/img/OIP.jpg" alt="buscado">
+        <div class="error-text">
+        <h1>Hemos perdido esta página</h1>
+         <p class="error">Hemos buscado por todos los lados,<br>
+         pero no hemos conseguido encontrar la página que estás buscando.
+         <br> Vamos a buscar un lugar mejor para ti</p>
+         
+        </div>
+      </div>
+    </main>
+    <!-- Footer -->
+
+    <%- include("./partials/footer") %>
+
+    <!-- SCROLL REVEAL -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- CUSTOM JS -->
+    <script src="/JS/archivo.js"></script>
+    <script src="/JS/cartAmount.js"></script>
+  
+  </body>
+</html>
